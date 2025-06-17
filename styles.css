@@ -81,11 +81,13 @@ body {
 }
 
 .content > * {
-  max-width: 40%;
+  max-width: 45%;
 }
 
 figure {
   text-align: center;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 figure > img {
@@ -97,6 +99,11 @@ figure > img {
 #dataTable td {
   border: 1px solid currentColor;
   border-collapse: collapse;
+  text-align: center;
+}
+#dataTable th {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 #title {
@@ -107,5 +114,33 @@ figure > img {
 
 .multi-column {
   columns: 3;
-  column-gap: 1em;
+  column-gap: 2em;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gallery img {
+  width: 115px;
+}
+
+li.chosen {
+  list-style: disc;
+  font-weight: 600;
+}
+
+ul.ideas {
+  list-style: circle;
+}
+
+div.plot-container {
+  overflow: hidden;
+}
+
+.content h2,
+.content h3,
+.content p,
+.content ul {
+  margin: 0.5em;
 }
