@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="icon" href="data:," />
+    <title>Page-Central</title>
     <script src="./autoDate.js" defer></script>
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
   </head>
@@ -11,7 +13,7 @@
       <h2>2024-25 2nd Semester Final Project</h2>
     </header>
 
-    <h1 class="title">Experiment Exploring the Relation between Angle of Attack and Lift Force of Airfoils</h1>
+    <h1 id="title">Experiment Exploring the Relation between Angle of Attack and Lift Force of Airfoils</h1>
 
     <div class="content">
       <h3>Hypothesis</h3>
@@ -19,7 +21,11 @@
       <h3>Experiment Setup =></h3>
       <h3>Data Collection</h3>
       <table id="dataTable">
-        <thead><th>AOA</th><th>Measured Weight</th><th>Lift</th></thead>
+        <thead>
+          <th>AOA(°)</th>
+          <th>Measured Weight(g)</th>
+          <th>Lift(N)</th>
+        </thead>
       </table>
       <div id="polar-plot" style="width: 500px; height: 500px"></div>
     </div>
@@ -29,41 +35,51 @@
         Presenter: Albert Chen<br />
         Date: <span id="date"></span>
       </p>
+      <p class="footer-central">
+        Instructor: Randolf Newman<br />
+        Pegasus California School
+      </p>
       <p class="footer-right">MIT License © 2025 aoi<br />Central</p>
     </footer>
   </body>
 
   <script>
+    document.getElementById('date').innerText = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'long',
+    });
+
     const idle = 305;
 
-    const aoas=[0,5,10,20,30,40,45,50,60,70,80,90];
-    const wt=[310,268,245,234,222,229,240,244,262,273,287,301];
-    const lift=wt.map((x)=>(idle-x)/100)
+    const aoas = [0, 5, 10, 20, 30, 40, 45, 50, 60, 70, 80, 90];
+    const wt = [310, 268, 245, 234, 222, 229, 240, 244, 262, 273, 287, 301];
+    const lift = wt.map((x) => (idle - x) / 100);
 
-  const table = document.getElementById('dataTable');
-
+    const table = document.getElementById('dataTable');
     for (let i = 0; i < aoas.length; i++) {
-    const row = document.createElement('tr');
+      const row = document.createElement('tr');
 
-    const cell1 = document.createElement('td');
-    cell1.textContent = aoas[i];
-    row.appendChild(cell1);
+      const cell1 = document.createElement('td');
+      cell1.textContent = aoas[i];
+      row.appendChild(cell1);
 
-    const cell2 = document.createElement('td');
-    cell2.textContent = wt[i];
-    row.appendChild(cell2);
+      const cell2 = document.createElement('td');
+      cell2.textContent = wt[i];
+      row.appendChild(cell2);
 
-    const cell3 = document.createElement('td');
-    cell3.textContent = lift[i];
-    row.appendChild(cell3);
+      const cell3 = document.createElement('td');
+      cell3.textContent = lift[i];
+      row.appendChild(cell3);
 
-    table.appendChild(row);
-  }
+      table.appendChild(row);
+    }
 
     const polarData = [
       {
         type: 'scatterpolar',
-        r: wt.map((x) => (idle - x) / 100),
+        r: lift,
         theta: aoas,
         fill: 'toself',
         line: {

@@ -10,6 +10,10 @@
   }
 }
 
+:root {
+  --page-margin: 2rem;
+}
+
 header,
 footer {
   background-color: darkslateblue !important;
@@ -18,6 +22,16 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: var(--page-margin);
+  padding-right: var(--page-margin);
+}
+header {
+  padding-top: var(--page-margin);
+  padding-bottom: 1em;
+}
+footer {
+  padding-top: 1em;
+  padding-bottom: var(--page-margin);
 }
 
 header h2 {
@@ -55,7 +69,10 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: var(--page-margin);
+  margin-right: var(--page-margin);
   overflow: hidden;
 }
 
@@ -63,11 +80,32 @@ body {
   vertical-align: -0.125em;
 }
 
-.content img {
-  width: 200px;
+.content > * {
+  max-width: 40%;
 }
 
-.title {
-  margin: 1rem;
+figure {
+  text-align: center;
+}
+
+figure > img {
+  max-width: 100%;
+}
+
+#dataTable,
+#dataTable th,
+#dataTable td {
+  border: 1px solid currentColor;
+  border-collapse: collapse;
+}
+
+#title {
+  margin-left: var(--page-margin);
+  margin-right: var(--page-margin);
   margin-bottom: 0;
+}
+
+.multi-column {
+  columns: 3;
+  column-gap: 1em;
 }

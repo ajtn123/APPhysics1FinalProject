@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./autoDate.js" defer></script>
+    <link rel="icon" href="data:," />
+    <title>Page-Right</title>
   </head>
   <body>
     <header>
@@ -13,9 +14,28 @@
     <div class="content">
       <h3>Experiment Setup</h3>
       <h4>Material</h4>
-      <p>Electric scale; stand fan; cardboard; tape; corner brackets; bolts and nuts.</p>
+      <ul class="multi-column">
+        <li>Electric scale</li>
+        <li>Stand fan</li>
+        <li>Cardboard</li>
+        <li>Tape</li>
+        <li>Corner brackets</li>
+        <li>bolts and nuts</li>
+      </ul>
       <h4>Building</h4>
       <p>wind tunnel</p>
+      <figure>
+        <img src="./Assets/p01.avif" />
+        <figcaption>Side View</figcaption>
+      </figure>
+      <figure>
+        <img src="./Assets/p02.avif" />
+        <figcaption>Top View</figcaption>
+      </figure>
+      <figure>
+        <img src="./Assets/p03.avif" />
+        <figcaption>Front View</figcaption>
+      </figure>
       <img src="./Assets/01.avif" />
       <img src="./Assets/02.avif" />
       <img src="./Assets/03.avif" />
@@ -33,8 +53,8 @@
 
     <footer>
       <p class="footer-left">
-        Experimental idea inspired by: https://www.grc.nasa.gov/WWW/K-12/WindTunnel/WTExpKids/<br />
-        Date: <span id="date"></span>
+        Experimental idea: https://www.grc.nasa.gov/WWW/K-12/WindTunnel/WTExpKids/<br />
+        Graphs created by: Krita, Plotly.
       </p>
       <p class="footer-right">MIT License © 2025 aoi<br />Right</p>
     </footer>
