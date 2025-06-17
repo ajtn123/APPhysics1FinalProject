@@ -1,0 +1,19 @@
+iframe {
+  width: 297mm;
+  height: 420mm;
+  border: 1px black dashed;
+  flex: 0 0 auto;
+}
+div {
+  overflow-x: auto;
+  display: flex;
+}
+button {
+  height: 2em;
+  width: 8em;
+  font-size: 6em;
+  margin: 1rem;
+}
+.buttons {
+  justify-content: space-around;
+}

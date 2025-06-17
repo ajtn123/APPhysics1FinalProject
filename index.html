@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div>
+      <iframe src="/1.html" id="left"></iframe>
+      <iframe src="/2.html" id="central"></iframe>
+      <iframe src="/3.html" id="right"></iframe>
+    </div>
+    <div class="buttons">
+      <button onclick="printIframe('left')">Print Left</button>
+      <button onclick="printIframe('central')">Print Central</button>
+      <button onclick="printIframe('right')">Print Right</button>
+    </div>
+  </body>
+
+  <script>
+    function printIframe(id) {
+      const iframe = document.getElementById(id);
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+      } else {
+        alert('Iframe not ready.');
+      }
+    }
+  </script>
+</html>

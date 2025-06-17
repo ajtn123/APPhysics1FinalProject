@@ -1,0 +1,73 @@
+@page {
+  size: A3 portrait;
+  margin: 0;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+header,
+footer {
+  background-color: darkslateblue !important;
+  color: white !important;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header h2 {
+  margin: 0;
+}
+
+header p,
+footer p {
+  margin: 0;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 297mm;
+  height: 420mm;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+  overflow: hidden;
+}
+
+.icon {
+  vertical-align: -0.125em;
+}
+
+.content img {
+  width: 200px;
+}
+
+.title {
+  margin: 1rem;
+  margin-bottom: 0;
+}

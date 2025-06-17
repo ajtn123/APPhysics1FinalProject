@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/autoDate.js" defer></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <header>
+      <h2><img src="/hugeicons--physics.svg" class="icon" /> AP Physcis 1</h2>
+      <h2>2024-25 2nd Semester Final Project</h2>
+    </header>
+
+    <h1 class="title">Experiment Exploring the Relation between Angle of Attack and Lift Force of Airfoils</h1>
+
+    <div class="content">
+      <div id="polar-plot" style="width: 500px; height: 500px"></div>
+    </div>
+
+    <footer>
+      <p class="footer-left">
+        Presenter: Albert Chen<br />
+        Date: <span id="date"></span>
+      </p>
+      <p class="footer-right">MIT License © 2025 aoi<br />Central</p>
+    </footer>
+  </body>
+
+  <script>
+    const idle = 305;
+
+    const polarData = [
+      {
+        type: 'scatterpolar',
+        r: [310, 263, 245, 234, 222, 229, 244, 262, 273, 287, 301].map((x) => (idle - x) / 100),
+        theta: [0, 5, 10, 20, 30, 40, 45, 50, 60, 70, 80, 90],
+        fill: 'toself',
+        line: {
+          shape: 'spline',
+        },
+      },
+    ];
+
+    const polarLayout = {
+      polar: {
+        radialaxis: { visible: true },
+      },
+      showlegend: false,
+      dragmode: false,
+    };
+
+    const config = {
+      scrollZoom: false,
+      displayModeBar: false,
+    };
+
+    Plotly.newPlot('polar-plot', polarData, polarLayout, config);
+  </script>
+</html>
