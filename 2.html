@@ -18,7 +18,9 @@
       <p>The lift force reaches its maximum when the angle of attack is 45 degrees above the horizontal plane.</p>
       <h3>Experiment Setup =></h3>
       <h3>Data Collection</h3>
-      <p></p>
+      <table id="dataTable">
+        <thead><th>AOA</th><th>Measured Weight</th><th>Lift</th></thead>
+      </table>
       <div id="polar-plot" style="width: 500px; height: 500px"></div>
     </div>
 
@@ -34,11 +36,35 @@
   <script>
     const idle = 305;
 
+    const aoas=[0,5,10,20,30,40,45,50,60,70,80,90];
+    const wt=[310,268,245,234,222,229,240,244,262,273,287,301];
+    const lift=wt.map((x)=>(idle-x)/100)
+
+  const table = document.getElementById('dataTable');
+
+    for (let i = 0; i < aoas.length; i++) {
+    const row = document.createElement('tr');
+
+    const cell1 = document.createElement('td');
+    cell1.textContent = aoas[i];
+    row.appendChild(cell1);
+
+    const cell2 = document.createElement('td');
+    cell2.textContent = wt[i];
+    row.appendChild(cell2);
+
+    const cell3 = document.createElement('td');
+    cell3.textContent = lift[i];
+    row.appendChild(cell3);
+
+    table.appendChild(row);
+  }
+
     const polarData = [
       {
         type: 'scatterpolar',
-        r: [310, 263, 245, 234, 222, 229, 244, 262, 273, 287, 301].map((x) => (idle - x) / 100),
-        theta: [0, 5, 10, 20, 30, 40, 45, 50, 60, 70, 80, 90],
+        r: wt.map((x) => (idle - x) / 100),
+        theta: aoas,
         fill: 'toself',
         line: {
           shape: 'spline',
